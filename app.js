@@ -8,7 +8,10 @@ new Vue({
     return {
       form: {
         name: null,
-        age: null
+        age: null,
+        email: null,
+        newsletter: null,
+        food: null
       }
     }
   },
@@ -23,7 +26,10 @@ new Vue({
         oldEnoughAndAlive
       },
       email: {
-        email: validators.email
+        email: validators.email,
+        required: validators.requiredIf(function () {
+          return !!this.form.newsletter
+        })
       },
       food: {
         pizzaOrBurger
