@@ -28,6 +28,12 @@ new Vue({
   },
 
   methods: {
+    shouldAppendValidClass(field){
+      return !field.$invalid && field.$model && field.$dirty
+    },
+    shouldAppendErrorClass(field){
+      return field.$error
+    },
     submitForm () {
       this.$v.form.$touch()
       if(!this.$v.form.$invalid){
