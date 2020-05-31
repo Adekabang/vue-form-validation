@@ -20,6 +20,9 @@ new Vue({
         required : validators.required,
         integer: validators.integer,
         between: validators.between(12,120)
+      },
+      email: {
+        email: validators.email
       }
     }
   },
