@@ -14,13 +14,13 @@
   <form @submit.prevent="submitForm" autocomplete="off">
     <div class="form-group">
       <label for="name">Name:</label>
-      <input v-model="$v.form.name.$model" id="name" :class="{error: $v.form.name.$error, valid: !$v.form.name.$invalid}">
+      <input v-model="form.name" id="name" :class="{error: $v.form.name.$error, valid: !$v.form.name.$invalid}" @blur="$v.form.name.$touch()">
       <p v-if="$v.form.name.$error" class="error-message">The name field is required</p>
     </div>
 
     <div class="form-group">
       <label for="age">Age:</label>
-      <input v-model.number="$v.form.age.$model" id="age" :class="{error: $v.form.age.$error, valid: !$v.form.age.$invalid}">
+      <input v-model.number="form.age" id="age" :class="{error: $v.form.age.$error, valid: !$v.form.age.$invalid}" @blur="$v.form.age.$touch()">
       <div v-if="$v.form.age.$error">
         <p v-if="!$v.form.age.$required" class="error-message">The age field is required</p>
         <p v-else-if="!$v.form.age.integer" class="error-message">The age field should be a Integer</p>
