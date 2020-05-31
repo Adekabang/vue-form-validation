@@ -18,7 +18,7 @@ new Vue({
       },
       age: {
         required : validators.required,
-        number: validators.integer,
+        integer: validators.integer,
         between: validators.between(12,120)
       }
     }
