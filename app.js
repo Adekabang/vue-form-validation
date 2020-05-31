@@ -10,7 +10,8 @@ new Vue({
         name: null,
         age: null,
         email: null,
-        newsletter: null,
+        newsletter: null,       
+        githubUsername: null,
         food: null
       }
     }
@@ -30,6 +31,14 @@ new Vue({
         required: validators.requiredIf(function () {
           return !!this.form.newsletter
         })
+      },
+       githubUsername: {
+        exists (value) {
+          if (!validators.helpers.req(value)) {
+            return true
+          }
+          return axios.get(`//api.github.com/users/${value}`)
+        }
       },
       food: {
         pizzaOrBurger
