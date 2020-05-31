@@ -1,1 +1,1 @@
-"# vue-form-validation" 
+# vue-form-validation
